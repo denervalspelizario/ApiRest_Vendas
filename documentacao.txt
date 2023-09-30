@@ -1,0 +1,18 @@
+comando para iniciar projeto
+-  npm init -y  (iniciando projeto)
+-  npm i -D typescript (instalando type no projeto)
+-  npx tsc --init  (criando arquivo de configuracao de type)
+-  npm i fastify (framework do node para api)
+-  npm install tsx -D (uma especie de nodemon) tem que alterar la no scripts  "dev": "tsx watch src/server.ts"
+-  (opcional)npm i eslint @rocketseat/eslint-config -D  (padronizar projeto)
+
+* alterar o schema script para 2020 em tsconfig
+
+* Obs se na hora de rodar o app com npx tsc src/server.ts  entao use o comando npm install -D @types/node
+
+* comando para rodar a aplicacao é  npm run dev
+* criar o eslint para fazer padrão(opcional)
+* adicionar em scripts "lint": "eslint src --ext .ts --fix", comando npm run lint para padronizar projeto agora toda vez que tiver fora do padrão vai dar erro(opcional)
+
+* instalar o knex para faezr as querys para o banco(neste caso será o sqlite) segue o comando npm install knex sqlite3
+* criar arquivo database.ts la adicionar as configs, depois criar pasta tmp e dar run e assim criará o banco se atentar a sintaxe 
