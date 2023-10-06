@@ -1,18 +1,27 @@
-comando para iniciar projeto
--  npm init -y  (iniciando projeto)
--  npm i -D typescript (instalando type no projeto)
--  npx tsc --init  (criando arquivo de configuracao de type)
--  npm i fastify (framework do node para api)
--  npm install tsx -D (uma especie de nodemon) tem que alterar la no scripts  "dev": "tsx watch src/server.ts"
--  (opcional)npm i eslint @rocketseat/eslint-config -D  (padronizar projeto)
 
-* alterar o schema script para 2020 em tsconfig
+CONFIGURANDO PROJETO
+-- criação do projeot yarn init -y
+-- instalando dependencias :
+comando yarn add typescript ts-node-dev @types/node tsconfig-paths -D   , adcionando typescript ao projeto
+comando yarn tsc --init --rootDir src --outDir build --esModuleInterop --resolveJsonModule --lib es6 --module commonjs --allowJs true --noImplicitAny true   , regras do typescript ao projeto
 
-* Obs se na hora de rodar o app com npx tsc src/server.ts  entao use o comando npm install -D @types/node
+-- para rodar o build  comando yarn tsc   , que gera o arquivo js mas não sera usado até o final do projeto
+-- crie no script com esse comando    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts"  para poder rodar a api para teste com o comando yarn dev
+-- criando padronização de codigo crie .editorconfig e ajuste a sua realidade
+-- continuando a padronizacao instale  este comando yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin  e depois  crie o .eslint
+   depois de criar eslint e adicionara s configs crie o eslitignore e adicione as configs e depois adicione os comandos para executar o eslint em scripts no package.json
 
-* comando para rodar a aplicacao é  npm run dev
-* criar o eslint para fazer padrão(opcional)
-* adicionar em scripts "lint": "eslint src --ext .ts --fix", comando npm run lint para padronizar projeto agora toda vez que tiver fora do padrão vai dar erro(opcional)
+-- Adicionar prettier ao projeto para instalar comando yarn add prettier -D  , depois crie o arquivo .prettierrc e adicione as configs básicas
+   após as configs basicas instale esses dois pacotes   yarn add eslint-config-prettier@6.15.0 eslint-plugin-prettier@3.2.0 -D e depois ajustar as configs no eslitrc
 
-* instalar o knex para faezr as querys para o banco(neste caso será o sqlite) segue o comando npm install knex sqlite3
-* criar arquivo database.ts la adicionar as configs, depois criar pasta tmp e dar run e assim criará o banco se atentar a sintaxe 
+ESTRUTURA DE PASTAS
+  -- pastas base config  modules e share
+  -- ajuste em tsconfig  para tire o // de "baseUrl" e facilitar os caminhos usando o script
+  "paths": {
+    "@config/*": ["src/config/*"],
+    "@modules/*": ["src/modules/*"],
+    "@shared/*": ["src/shared/*"]
+  }
+
+
+INSTALACOES DE BIBLIOTECAS USADAS NO PROJETO
