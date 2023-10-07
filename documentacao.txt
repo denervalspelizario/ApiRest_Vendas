@@ -25,3 +25,10 @@ ESTRUTURA DE PASTAS
 
 
 INSTALACOES DE BIBLIOTECAS USADAS NO PROJETO
+yarn add express cors express-async-errors
+yarn add -D @types/express @types/cors
+
+-- depois de estruturar pastas fazer uma rota basica para testes
+-- criar um arquivo de tratagem de error que será na pasta dentro de src chamada error,
+   depois em AppError vc criar a classe que recebe a msg e o status do erro,
+   em seguinta criar um middleware
