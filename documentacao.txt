@@ -31,4 +31,34 @@ yarn add -D @types/express @types/cors
 -- depois de estruturar pastas fazer uma rota basica para testes
 -- criar um arquivo de tratagem de error que será na pasta dentro de src chamada error,
    depois em AppError vc criar a classe que recebe a msg e o status do erro,
-   em seguinta criar um middleware
+   em seguinta criar um middleware em server.ts msm  para fazer o tratamento do erro 400
+
+-- usando typeOrm  dcomentação em https://typeorm.io instalar com o comando
+  yarn add typeorm reflect-metadata pg
+  ** neste caso já esta sendo instalada reflect-metadata e pg(postgress)
+  ** trabalharemos netse projeto em uma versão de typeOrm 2.9 mas já existe uma versão que tem pequenas mudanças de estrutura
+
+  INICIANDO TRABALHOS COM TypeORM
+  -- criar na raiz do projeto ormconfig nele fica os parametros do banco de dados
+  -- depois em shared crie pasta typeorm > index.ts onde vai ficar o chamar esses parametros e conectar com o docker
+  -- com o comando
+    docker run --name postgres -e POSTGRES_PASSWORD=vaval0645 -p 5432:5432 -d postgres
+    ** --name define tipo do banco, POSTGRES_PASSWORD senha do banco
+       5432(porta na maquina pode mudar):5432(porta do docker essa NUNCA MUDA)
+  -- ir no beekeeper e criar o bando nesnet cado chamado apivendas e da start na aplicacao
+  -- criar na pasta typeorm outra pasta chamada migrations
+  -- em ormconfig.js adicionar "migrations" e "cli " e seu caminho cuidado sintaxe
+  -- adicionar em dependencias la no package.json  o script "typeorm" e seu caminho, para testar comando yarn typeorm
+     ** lembrando com servidor rodando em um outro terminal faça o teste
+
+
+  CRIANDO mIGRATION DA TABELA  PRODUTOS
+  com o comando
+  yarn typeorm migration:create -n CreateProducts
+  ** criando um migration tabela chamada CreateProducts la na pasta migations
+  -- apos o arquivo imigration CreateProducts criado dentro faca os parametros da criacao da tabela e suas colunas
+  -- para rodar o comando será   yarn typeorm migration:run
+     **  o uuid_generate_v4() vai dar erro precisa instalar uma extensão chamada uuid-ossp ou como neste caso
+         foi adicionado uma query  await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
+
+
