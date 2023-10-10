@@ -16,12 +16,14 @@ class CreateProductService {
 
     const productsRepository = getCustomRepository(ProductRepository); // pegando o repositorio customizado
 
-    const productExists = await productsRepository.findByName(name); // usando o metodo find para ver se existe este produto
+    // verificando se o nome já existe
+    const productExists = await productsRepository.findByName(name);
 
-    // validando existencia de produto para evitar produto com msm nome duplicado
+    // se nome já existe
     if(productExists){
       throw new AppError('There is already one product with this name')
     }
+
 
     // não tem produto duplicado então criando um objeto com os dados do repository
     const product = productsRepository.create({

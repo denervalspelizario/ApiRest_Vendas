@@ -1,6 +1,5 @@
 import { getCustomRepository } from "typeorm"; // metodo para pegar um repositorio customizado
 import { ProductRepository } from "../typeorm/repositories/ProductsRepository";
-import Product from "../typeorm/entities/Product";
 import AppError from "@shared/http/error/AppError";
 
 interface IResquest {
@@ -8,9 +7,9 @@ interface IResquest {
 }
 
 
-// classe que tem como responsabilidade Mostrar os dados de um produto
-class ShowProductService {
-  public async execute({id}: IResquest): Promise<Product>{
+// classe que tem como responsabilidade Deletar um produto
+class DeleteProductService {
+  public async execute({id}: IResquest): Promise<void>{
 
     const productsRepository = getCustomRepository(ProductRepository); // pegando o repositorio customizado
 
@@ -23,10 +22,11 @@ class ShowProductService {
       throw new AppError('Product not found')
     }
 
-    // retornando o produto
-    return product;
+    // removendo o produto
+    await productsRepository.remove(product);
+
   }
 }
 
 
-export default ShowProductService;
+export default DeleteProductService;

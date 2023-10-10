@@ -11,7 +11,7 @@ class ListProductService {
 
 
     // pegando todos os produtos que tem em repository
-    const products = productsRepository.find();
+    const products = await productsRepository.find();
 
     // retornando a list
     return products;
