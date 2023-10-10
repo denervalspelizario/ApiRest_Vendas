@@ -60,5 +60,12 @@ yarn add -D @types/express @types/cors
   -- para rodar o comando será   yarn typeorm migration:run
      **  o uuid_generate_v4() vai dar erro precisa instalar uma extensão chamada uuid-ossp ou como neste caso
          foi adicionado uma query  await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
+  -- criado o banco e a tabela crie a entidade Product.ts em src/modules/products/typeorm/entities
+  -- após criar a entidade product ir no tsconfig e descomentar tanto
+    "experimentalDecorators": true
+    "emitDecoratorMetadata": true
+    "strictPropertyInitialization": false   obs - ele vem true como default mudar para false
 
+  -- agora fazer o repositorio de products onde vai ter as regras de negocio fazer a entidade Products e depois
+     o repositorio ProductRepository onde vai fazer a query usando a entidade Product
 
