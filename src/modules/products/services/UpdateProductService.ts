@@ -1,7 +1,7 @@
 import { getCustomRepository } from "typeorm"; // metodo para pegar um repositorio customizado
 import { ProductRepository } from "../typeorm/repositories/ProductsRepository";
 import Product from "../typeorm/entities/Product";
-import AppError from "@shared/http/error/AppError";
+import AppError from "../../../shared/http/error/AppError";
 
 interface IResquest {
   id: string;
@@ -37,7 +37,7 @@ class UpdateProductService {
 
     product.name = name;
     product.price = price;
-    product.quantity = price;
+    product.quantity = quantity;
 
     // salvando atualização
     await productsRepository.save(product);

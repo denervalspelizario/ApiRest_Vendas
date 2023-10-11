@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm"; // metodo para pegar um repositorio customizado
 import { ProductRepository } from "../typeorm/repositories/ProductsRepository";
-import AppError from "@shared/http/error/AppError";
+import AppError from "../../../shared/http/error/AppError";
 
 interface IResquest {
   id: string

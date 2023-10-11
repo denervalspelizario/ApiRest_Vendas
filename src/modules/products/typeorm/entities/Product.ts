@@ -5,7 +5,7 @@ class Product {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('string')
+  @Column('varchar')
   name: string;
 
   @Column('decimal')

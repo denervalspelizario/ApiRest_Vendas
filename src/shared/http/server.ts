@@ -4,6 +4,7 @@ import routes from './routes';
 import AppError from './error/AppError';
 import 'reflect-metadata';
 import '@shared/typeorm';
+import 'express-async-errors';
 
 const app = express();
 

@@ -69,3 +69,7 @@ yarn add -D @types/express @types/cors
   -- agora fazer o repositorio de products onde vai ter as regras de negocio fazer a entidade Products e depois
      o repositorio ProductRepository onde vai fazer a query usando a entidade Product
 
+  -- criar em products pasta services nela tera os arquivos de crud CreateProducts, DeleteProductService, ListProductService  e etc
+
+  -- em modules/products/controllers  crie o controladores
+   -- em modules/products/routes  crie a rotas
