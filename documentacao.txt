@@ -72,4 +72,9 @@ yarn add -D @types/express @types/cors
   -- criar em products pasta services nela tera os arquivos de crud CreateProducts, DeleteProductService, ListProductService  e etc
 
   -- em modules/products/controllers  crie o controladores
-   -- em modules/products/routes  crie a rotas
+  -- em modules/products/routes  crie a rotas
+
+  -- controllers = onde fica os controladores   services = onde fica a logica e validacoes dos controladores/rotas
+  -- validacões serão feitas pela biblioteca celebrate
+  ** yarn add celebrate
+  ** yarn add -D @types/joi

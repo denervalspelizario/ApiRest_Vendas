@@ -1,10 +1,12 @@
 import express, { NextFunction, Request, Response } from 'express';
+import 'express-async-errors'; // essa porra TEM que ficar em baixo dessa porra de express
 import cors from 'cors';
 import routes from './routes';
 import AppError from './error/AppError';
 import 'reflect-metadata';
 import '@shared/typeorm';
-import 'express-async-errors';
+import { errors } from 'celebrate'; // para o ceçebrate funcionar precisa desse import
+
 
 const app = express();
 
@@ -13,6 +15,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use(routes);
+
+app.use(errors()); // import da biblioteca celebrate para funcionar a validação seguindo a documentação
 
 app.use(
   (
